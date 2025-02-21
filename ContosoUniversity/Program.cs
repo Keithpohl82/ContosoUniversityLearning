@@ -9,7 +9,7 @@ builder.Services.AddRazorPages();
 //builder.Services.AddDbContext<SchoolContext>(options =>
 //    options.UseSqlServer(builder.Configuration.GetConnectionString("SchoolContext") ?? throw new InvalidOperationException("Connection string 'SchoolContext' not found.")));
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = builder.Configuration.GetConnectionString("SchoolContext");
 
 if (string.IsNullOrEmpty(connectionString))
 {
@@ -43,7 +43,7 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
 
     var context = services.GetRequiredService<SchoolContext>();
-    context.Database.EnsureCreated();
+    context.Database.Migrate();
     DbInitializer.Initialize(context);
 }
 
