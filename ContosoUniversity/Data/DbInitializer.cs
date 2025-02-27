@@ -22,6 +22,27 @@ namespace ContosoUniversity.Data
                 EnrollmentDate = DateTime.Parse("2016-09-01")
             };
 
+            var pohl = new Student
+            {
+                FirstMidName = "Keith",
+                LastName = "Pohl",
+                EnrollmentDate = DateTime.Parse("2017-04-20")
+            };
+
+            var mccoy = new Student
+            {
+                FirstMidName = "Heather",
+                LastName = "McCoy",
+                EnrollmentDate = DateTime.Parse("2018-07-04")
+            };
+
+            var mohamed = new Student
+            {
+                FirstMidName = "Nora",
+                LastName = "Mohamed",
+                EnrollmentDate = DateTime.Parse("2019-09-01")
+            };
+
             var alonso = new Student
             {
                 FirstMidName = "Meredith",
@@ -71,6 +92,13 @@ namespace ContosoUniversity.Data
                 EnrollmentDate = DateTime.Parse("2011-09-01")
             };
 
+            var lawrence = new Student
+            {
+                FirstMidName = "Lawrence",
+                LastName = "Smith",
+                EnrollmentDate = DateTime.Parse("2015-03-17")
+            };
+
             var students = new Student[]
             {
                 alexander,
@@ -80,7 +108,11 @@ namespace ContosoUniversity.Data
                 li,
                 justice,
                 norman,
-                olivetto
+                olivetto,
+                pohl,
+                mccoy,
+                mohamed,
+                lawrence
             };
 
             context.AddRange(students);
@@ -319,7 +351,25 @@ namespace ContosoUniversity.Data
                     Student = justice,
                     Course = literature,
                     Grade = Grade.B
-                }
+                },
+
+                new Enrollment {
+                    Student = norman,
+                    Course = literature,
+                    Grade = Grade.B
+                },
+
+                new Enrollment {
+                    Student = olivetto,
+                    Course = calculus,
+                    Grade = Grade.A
+                },
+
+                new Enrollment {
+                    Student = pohl,
+                    Course = trigonometry
+                },
+
             };
 
             context.AddRange(enrollments);
